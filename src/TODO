@@ -1,0 +1,16 @@
+[ ] Limit rendered field sizes everywhere, max display limits:
+ - description: 140
+ - name: 40
+
+[ ] Add a "validate" command        to validate module.json
+
+[ ] Add a "update" command
+
+[ ] Add a "lock" command           to lock a module at it's current version
+[ ] Add a "unlock" command         to unlock a module
+
+[x] Add a "remove" command         to remove a module
+
+[ ] Uri association? pluto-lua://
+
+[ ] Refactor commands from standalone modules to functions called by some index.mjs

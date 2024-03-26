@@ -1,0 +1,22 @@
+{
+    "name": "exampleProject",
+    "author": {
+        "name": "",
+        "github": "",
+        "email": ""
+    },
+    "license": "MIT",
+    "version": "0.0.1",
+    "description": "",
+    "icon": "default",
+    "runtime": "Luajit2.1",
+    "frameworks": [
+        "love11"
+    ],
+    "dependencies": {
+        "Selene-Placeholder-Package-2": {
+            "gitTag": "v1.0"
+        }
+    },
+    "documentation": ""
+}

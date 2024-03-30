@@ -1,13 +1,26 @@
 import chalk from "chalk";
 import fs from "node:fs/promises";
-import { PlutoError, PlutoHello, PlutoLog, PlutoSuccess, generateModuleShorthand, getPlutoLock, getPlutoModule } from "../util.mjs";
-import { LOCK_FILE, MODULE_DIRECTORY, MODULE_MANIFEST_FILENAME } from "../constants.mjs";
+import { PlutoError, PlutoHello, PlutoHelp, PlutoLog, PlutoSuccess, ReadModuleManifest, ReadModuleMapping, filterInstalledModules, generateDependencies, generateModuleShorthand, getPlutoLock, getPlutoModule, performModuleInstall } from "../util.mjs";
+import { COMMAND_FETCH, LOCK_FILE, MODULE_DIRECTORY, MODULE_MANIFEST_FILENAME } from "../constants.mjs";
 import minimist from "minimist";
 
-// -n Name updates a specific package
-// no args updates all packages to latest versions
+// update Name updates a specific package
+// update no args updates all packages to latest versions
 
 PlutoHello("update");
+
+
+PlutoLog("Info", "Reading cache...");
+let plutoModuleMapping;
+try {
+    plutoModuleMapping = await ReadModuleMapping();
+} catch (e) {
+    PlutoError(
+        `Couldn't find ${chalk.red("appdata cache")} exiting...`
+    );
+    console.log(e);
+    process.exit(1);
+}
 
 PlutoLog("Info", "Reading root module configuration...");
 const cwd = process.cwd().replace("\\", "/");
@@ -24,27 +37,16 @@ try {
     process.exit(1);
 }
 
-PlutoLog("Info", "Reading lockfile...");
+await fs.rm(`${cwd}/pluto_modules`, {recursive: true, force: true});
+await fs.rm(`${cwd}/pluto.lock`, {recursive: true, force: true});
+
 let plutoLock;
-try {
-    plutoLock = await getPlutoLock();
-} catch (e) {
-    PlutoError(`No ${LOCK_FILE} found, nothing to be done...`);
-    process.exit(1);
-}
 
-const argv = minimist(process.argv.slice(2));
+const moduleManifest = await ReadModuleMapping();
 
-let argName;
-if (argv._ && argv._[0]) {
-    // Update single
-    argName = argv._[0];
+const {realPackageList, submoduleList, flattenedPackageList} = await generateDependencies(plutoModule, moduleManifest);
 
-    if (!plutoModule.dependencies[argName]){
-        PlutoError(`Package name not found`);
-        process.exit(1);
-    }
-} else {
-    // Update all
-}
+const {filteredFlatPackagelist, filteredRealPackages, filteredSubmodules} = filterInstalledModules(realPackageList, submoduleList, flattenedPackageList, plutoLock);
+
+await performModuleInstall(filteredSubmodules, filteredFlatPackagelist, filteredRealPackages, moduleManifest, plutoLock);
 

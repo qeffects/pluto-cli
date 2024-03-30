@@ -10,7 +10,10 @@
     "install": "node src/commands/install.mjs",
     "inspect": "node src/commands/inspect.mjs",
     "list": "node src/commands/list.mjs",
-    "remove": "node src/commands/remove.mjs"
+    "remove": "node src/commands/remove.mjs",
+    "update": "node src/commands/update.mjs",
+    "lock": "node src/commands/lock.mjs",
+    "unlock": "node src/commands/unlock.mjs"
   },
   "author": "qfx",
   "type": "module",

@@ -15,7 +15,7 @@
     ],
     "dependencies": {
         "Selene-Placeholder-Package-2": {
-            "gitTag": "v1.0"
+            "gitCommit": "f510acb3"
         }
     },
     "documentation": ""

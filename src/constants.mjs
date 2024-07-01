@@ -55,9 +55,11 @@ export const FORBIDDEN_NAME_CHARS = ["@","#"];
 
 export const COMMAND_HELP = `${PROJECT_DISPLAY_NAME} help`;
 export const COMMAND_INSTALL = `${PROJECT_DISPLAY_NAME} install`;
+export const COMMAND_INITIALIZE = `${PROJECT_DISPLAY_NAME} init`;
 export const COMMAND_ADD = `${PROJECT_DISPLAY_NAME} add`;
 export const COMMAND_INSPECT = `${PROJECT_DISPLAY_NAME} inspect`;
 export const COMMAND_LOCK = `${PROJECT_DISPLAY_NAME} lock`;
+export const COMMAND_UNLOCK = `${PROJECT_DISPLAY_NAME} unlock`;
 export const COMMAND_LIST = `${PROJECT_DISPLAY_NAME} list`;
 export const COMMAND_REMOVE = `${PROJECT_DISPLAY_NAME} remove`;
 export const COMMAND_FETCH = `${PROJECT_DISPLAY_NAME} fetch`;

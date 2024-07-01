@@ -1,5 +1,5 @@
 package-lock.json
-/node_modules/*
-/exampleModule/*
-/pluto_modules/*
+/node_modules
+/exampleModule/
+/pluto_modules
 pluto.lock

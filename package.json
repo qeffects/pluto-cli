@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "cli package manager for lua",
   "main": "index.js",
+  "bin":{
+    "pluto": "./src/root.js"
+  },
   "scripts": {
     "initialize": "node src/commands/initialize.mjs",
     "fetch": "node src/commands/fetch.mjs",

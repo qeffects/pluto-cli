@@ -11,6 +11,7 @@ import { listCommand } from "./commands/list.mjs";
 import { lockCommand } from "./commands/lock.mjs";
 import { unlockCommand } from "./commands/unlock.mjs";
 import { updateCommand } from "./commands/update.mjs";
+import { removeCommand } from "./commands/remove.mjs";
 
 const argv = minimist(process.argv.slice(2));
 
@@ -42,6 +43,9 @@ if (argv._[0] && typeof argv._[0] == "string") {
             break;
         case "update":
             await updateCommand();
+            break;
+        case "remove":
+            await removeCommand();
             break;
 
         default:

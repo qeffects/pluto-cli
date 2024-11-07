@@ -57,7 +57,10 @@ export async function WriteModuleMapping(val) {
 export async function ReadModuleManifest(modName) {
     let appdata = GetAppData();
     let mm = await ReadModuleMapping();
-    const modFolder = mm.packageToFolderMap[modName];
+    let modFolder = modName
+    if (mm.packageToFolderMap[modName]) {
+        modFolder = mm.packageToFolderMap[modName];
+    }
 
     const manifest = await fs.readFile(
         appdata + "/metadata/packages/" + modFolder + "/manifest.json"

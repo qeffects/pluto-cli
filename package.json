@@ -2,21 +2,9 @@
   "name": "pluto",
   "version": "1.0.0",
   "description": "cli package manager for lua",
-  "main": "index.js",
+  "main": "./src/root.js",
   "bin":{
     "pluto": "./src/root.js"
-  },
-  "scripts": {
-    "initialize": "node src/commands/initialize.mjs",
-    "fetch": "node src/commands/fetch.mjs",
-    "add": "node src/commands/add.mjs",
-    "install": "node src/commands/install.mjs",
-    "inspect": "node src/commands/inspect.mjs",
-    "list": "node src/commands/list.mjs",
-    "remove": "node src/commands/remove.mjs",
-    "update": "node src/commands/update.mjs",
-    "lock": "node src/commands/lock.mjs",
-    "unlock": "node src/commands/unlock.mjs"
   },
   "author": "qfx",
   "type": "module",

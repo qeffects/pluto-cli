@@ -58,10 +58,10 @@ export const fetchCommand = async () => {
         await fs.access(appDataFolder + "/metadata/README.md");
     } catch (c) {
         await git.clone(
-            "https://github.com/qeffects/selene-packages.git",
+            "https://github.com/qeffects/pluto-packages.git",
             appDataFolder + "/metadata"
         );
-        PlutoSuccess(`Cloned remote git repo (selene-packages)`);
+        PlutoSuccess(`Cloned remote git repo (pluto-packages)`);
     }
 
     await git.fetch();
@@ -76,6 +76,8 @@ export const fetchCommand = async () => {
     const packageList = await fs.readdir(appDataFolder + "/metadata/packages");
 
     PlutoLog("Remote package list");
+
+    console.log(packageList);
 
     for (let index = 0; index < packageList.length; index++) {
         const v = packageList[index];

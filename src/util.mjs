@@ -262,7 +262,7 @@ export async function generateDependencies(plutoModule, moduleManifest) {
                 } else {
                     realPackageList.forEach((v) => {
                         if (v.reverseMap === newDep) {
-                            installedBy.push(reverseMap);
+                            v.installedBy.push(reverseMap);
                         }
                     });
                 }

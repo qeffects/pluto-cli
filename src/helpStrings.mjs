@@ -76,8 +76,9 @@ export const listHelp = () => {
 }
 
 export const lockHelp = () => {
-    commandName(COMMAND_LOCK, `-t <tag> -c <commit>`);
+    commandName(COMMAND_LOCK, `<package> -t <tag> -c <commit>`);
     commandDescription("Locks a dependency to a specific version");
+    arg("package","Name of the package to lock");
     arg("-h", "Shows help for this command");
     arg("-t <tag>","Locks a dependency to a specific git tag");
     arg("-c <commit>","Locks a dependency to a specific git commit");
@@ -86,12 +87,14 @@ export const lockHelp = () => {
 
 export const unlockHelp = () => {
     commandName(COMMAND_UNLOCK, ` <package>`);
+    arg("package","Name of the package to unlock");
     arg("-h", "Shows help for this command");
     commandDescription("Unlocks a dependency version");
 }
 
 export const removeHelp = () => {
     commandName(COMMAND_REMOVE, ` <package>`);
+    arg("package","Name of the package to remove");
     arg("-h", "Shows help for this command");
     commandDescription("Removes a package from your dependencies");
 }

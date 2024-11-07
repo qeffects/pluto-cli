@@ -1,5 +1,5 @@
 {
-  "name": "pluto",
+  "name": "@qfx/pluto",
   "version": "1.0.0",
   "description": "cli package manager for lua",
   "main": "./src/root.js",

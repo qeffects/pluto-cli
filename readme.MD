@@ -6,7 +6,7 @@ The package manager for Lua projects
 
 As a pre-requisite you need to have installed [Node.js](https://nodejs.org/en) and [git](https://git-scm.com/) on your computer    
 And available in your path setup   
-Next simply run `npm i -g qfx@pluto` in your command line   
+Next simply run `npm i -g @qfx/pluto` in your command line   
 After the command completes you can test if pluto is available by simply running `pluto`
 
 ## Using Pluto in your projects
